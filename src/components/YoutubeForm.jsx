@@ -39,7 +39,7 @@ const YoutubeForm = () => {
       errors.email = "Invalid email format";
     }
     if (!values.channel) {
-      errors.channel = "Channel is required";
+      errors.channel = "Password is required";
     }
     return errors;
   };
