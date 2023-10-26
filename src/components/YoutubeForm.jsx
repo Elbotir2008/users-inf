@@ -31,25 +31,25 @@ const YoutubeForm = () => {
   const validate = (values) => {
     let errors = {};
     if (!values.username) {
-      errors.username = "Username is required";
+      errors.username = "Ism Kiritilmadi!";
     }
     if (!values.email) {
       errors.email = "Email is required";
     } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)) {
-      errors.email = "Invalid email format";
+      errors.email = "Emailni Formati notog'ri!";
     }
     if (!values.channel) {
-      errors.channel = "Password is required";
+      errors.channel = "Parol kiritilmadi!";
     }
     return errors;
   };
 
   const validationSchema = Yup.object({
-    username: Yup.string().required("Username is required!"),
+    username: Yup.string().required("Ism Kiritilmadi!"),
     email: Yup.string()
-      .email("Invalid email format!")
-      .required("Email is required!"),
-    channel: Yup.string().required("Channel is required!"),
+      .email("Emailni Formati notog'ri!")
+      .required("Email Kirirtilmadi!"),
+    channel: Yup.string().required("Parol kiritilmadi!"),
   });
 
   const formik = useFormik({
@@ -67,14 +67,15 @@ const YoutubeForm = () => {
   }, []);
 
   return (
-    <div className="form-container">
+    <div className="form mt-5">
       <form onSubmit={handleSubmit}>
-        <h2>Register</h2>
+        <h2>Welcome User!</h2>
         <div className="form-control">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">ISM</label>
           <input
             type="text"
             id="username"
+            className="form-control"
             name="username"
             value={values.username}
             onChange={handleChange}
@@ -90,6 +91,7 @@ const YoutubeForm = () => {
           <input
             type="email"
             id="email"
+            className="form-control"
             name="email"
             value={values.email}
             onChange={handleChange}
@@ -101,8 +103,9 @@ const YoutubeForm = () => {
           ) : null}
         </div>
         <div className="form-control">
-          <label htmlFor="channel">Password</label>
+          <label htmlFor="channel">Parol</label>
           <input
+            className="form-control"
             type="text"
             id="channel"
             name="channel"
@@ -114,7 +117,9 @@ const YoutubeForm = () => {
             <div className="error">{errors.channel}</div>
           ) : null}
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
     </div>
   );
