@@ -101,7 +101,7 @@ const YoutubeForm = () => {
           ) : null}
         </div>
         <div className="form-control">
-          <label htmlFor="channel">Channel</label>
+          <label htmlFor="channel">Password</label>
           <input
             type="text"
             id="channel"
